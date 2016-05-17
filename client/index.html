@@ -1,0 +1,30 @@
+<html ng-app='myApp'>
+	<head>
+		<title>Mini Store</title>
+		<style type="text/css">
+		
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
+		<script src='scripts/app.js'></script>
+		<script src='scripts/controllers/customers.js'></script>
+		<script src='scripts/controllers/orders.js'></script>
+		<script src='scripts/controllers/products.js'></script>	
+		<script src='scripts/factories/customer.js'></script>
+		<script src='scripts/factories/order.js'></script>
+		<script src='scripts/factories/product.js'></script>
+	
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	</head>
+	<body>
+		   <div>
+        <a href="#/dashboard">Dashboard</a> | <a href="#/customers">Customers</a> | <a href="#/orders">Orders</a> | <a href="#/products">Products</a>
+        <div ng-view="">
+        </div>
+    </div>
+	</body>
+</html>
+		
+	

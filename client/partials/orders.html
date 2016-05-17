@@ -1,0 +1,30 @@
+<div ng-controller='ordersController'>
+	<h1>Add a new order</h1>
+	<form>
+		<select ng-options='customer.name for customer in customers2' ng-model='newOrder.name'></select>
+			<!-- <option ng-repeat='x in quantity' ng-bind='x' ng-model='newOrder.quantity'></option> -->
+
+		<select ng-options='product.name for product in products' ng-model='newOrder.product' ng-change='onChange(newOrder)'></select>
+		
+		<select ng-options='quantity.num for quantity in quantities' ng-model='newOrder.quantity'></select>
+		<input type='submit' ng-click='addOrder()'>
+	</form>
+	<input type='text' ng-model='filter_name' placeholder='filter...'>
+	<table>
+		<thead>
+			<td>Customer Name</td>
+			<td>Product</td>
+			<td>Quantity</td>
+			<td>Created Date</td>
+		</thead>
+		<!-- players in $scope.players -->
+		<tr ng-repeat="order in orders | orderBy: '-createdAt' | filter: filter_name">
+			<td ng-bind='order.name'></td>
+			<td ng-bind='order.product'></td>
+			<td ng-bind='order.quantity'></td>
+			<td ng-bind="order.createdAt | date: 'MMMM dd yyyy' "></td>
+<!-- 			<td ng-bind="order.createdAt  "></td> -->
+		</tr>
+	</table>
+</div>
+			

@@ -1,0 +1,30 @@
+<div ng-controller='ordersController'>
+	<div class='container'>
+		<div class='side'>
+		
+			<input type='text' ng-model='filter_name' placeholder='search...'>
+		</div>
+		<div class='display'>
+			<div class='row'>
+				<div id='products' ng-repeat="product in products | orderBy: '-createdAt' | limitTo:5 | filter: filter_name">
+					<img src="{{product.url}}">
+					<div class='caption'>
+						<p ng-bind='product.name'></p>
+						<p>({{product.quantity}} left)</p>
+					</div>
+				</div>
+				<a href="#/products">Show More...</a>
+			</div>
+			<div class='row'>
+				<h3>Recent Orders</h3>
+				<p ng-repeat="order in orders | orderBy: '-createdAt' | limitTo:3">{{order.name}} purchased {{order.quantity}} {{order.product}} <span am-time-ago = "order.createdAt"></span></p>
+				<a href="#/orders">Show More...</a>
+			</div>
+			<div class='row'>
+				<h3>New Customers</h3>
+				<p ng-repeat="customer in customers2 | orderBy: '-createdAt' | limitTo:3">{{customer.name}} joined <span am-time-ago = "customer.createdAt"></span></p>
+				<a href="#/customers">Show More...</a>
+			</div>
+		</div>
+	</div>
+</div>

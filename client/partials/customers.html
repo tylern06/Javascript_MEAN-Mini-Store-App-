@@ -1,0 +1,23 @@
+<div ng-controller='customersController'>
+	<h1><u>Add a new customer</u></h1>
+	<h3 class='errors' ng-if="errors.length > 0" ng-bind='errors'></h3>
+	<form>
+		<p>Name: <input type='text' ng-model='newCustomer.name'></p>
+		<!-- calls the add player method in controller -->
+		<p><input type='submit' value='Add' ng-click='addCustomer()'> </p>
+	</form>
+	<input type='text' ng-model='filter_name' placeholder='search name ...'>
+	<table>
+		<thead>
+			<td>Customer Name</td>
+			<td>Created Date</td>
+			<td>Action</td>
+		</thead>
+		<!-- players in $scope.players -->
+		<tr ng-repeat="customer in customers | orderBy: '-createdAt' | filter: filter_name">
+			<td ng-bind='customer.name'></td>
+			<td ng-bind="customer.createdAt | date: 'MMMM dd yyyy' "></td>
+			<td><button ng-click='removeCustomer(customer._id)'>Remove</button></td>
+		</tr>
+	</table>
+</div>
